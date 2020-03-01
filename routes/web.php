@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('companies', 'CompaniesController');
+Route::resource('tasks', 'TasksController');
+Route::resource('Roles', 'RolesController');
+Route::resource('users', 'UsersController');
+Route::resource('projects', 'ProjectsController');
+Route::resource('comments', 'CommentsController');
