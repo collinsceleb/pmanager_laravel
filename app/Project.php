@@ -17,10 +17,10 @@ class Project extends Model
     ];
 
     public function company() {
-        return $this->belongsTo('App/Company');
+        return $this->belongsTo('App\Company');
     }
 
     public function users() {
-        return $this->belongsToMany('App/User');
+        return $this->belongsToMany('App\User');
     }
 }

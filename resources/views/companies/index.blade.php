@@ -12,7 +12,7 @@
                     <div class="card" style="width: 18rem;">
                         <ul class="list-group list-group-flush">
                             @foreach($companies as $company)
-                            <li class="list-group-item">{{ $company->name }}</li>
+                            <li class="list-group-item"><a href="/companies/{{$company->id}}"> {{ $company->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
