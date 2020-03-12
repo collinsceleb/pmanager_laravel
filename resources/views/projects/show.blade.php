@@ -7,8 +7,8 @@
     <div class="col-md-9 col-lg-9 pull-left">
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">{{$companies->name}}</h1>
-                <p>{{$companies->description}}</p>
+                <h1 class="display-3">{{$projects->name}}</h1>
+                <p>{{$projects->description}}</p>
                 <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
             </div>
         </div>
@@ -16,9 +16,9 @@
         <div class="container">
             <!-- Example row of columns -->
             
-            <a href="/projects/create/{{ $companies->id }}" class="btn btn-secondary btn-sm" style="margin-bottom: 20px;">Add Project</a>
+            <a href="/projects/create" class="btn btn-secondary btn-sm" style="margin-bottom: 20px;">Add Project</a>
             <div class="row" style="margin: 10px;">
-                @foreach($companies->projects as $project)
+                @foreach($projects as $project)
                 <div class="col-md-4">
                     <h2>{{$project->name}}</h2>
                     <p class="text-danger"> {{$project->description}}</p>
@@ -38,21 +38,21 @@
                 <div class="card-body">
                     <h4 class="card-title">Action</h4>
                     <ol class="list-unstyled">
-                        <li><a href="/companies/{{ $companies->id }}/edit">Edit</a></li>
-                        <li><a href="/projects/create/{{ $companies->id }}">Add Project</a></li>
-                        <li><a href="/companies">Company's List</a></li>
-                        <li><a href="/companies/create">Create New Company</a></li>
+                        <li><a href="/projects/{{ $projects->id }}/edit">Edit</a></li>
+                        <li><a href="/projects/create">Add Project</a></li>
+                        <li><a href="/projects">Project's List</a></li>
+                        <li><a href="/projects/create">Create New Project</a></li>
                         
                         
                         <br/>
                         <li>
-                            <a href="#" onclick=" var result = confirm('Are you sure you wish to delete this Company?');
+                            <a href="#" onclick=" var result = confirm('Are you sure you wish to delete this project?');
                       if( result ){
                         event.preventDefault();
                         document.getElementById('delete-form').submit();
                       }">Delete
                             </a>
-                            <form id="delete-form" action="{{ route('companies.destroy',[$companies->id]) }}" method="POST" style="display: none;">
+                            <form id="delete-form" action="{{ route('projects.destroy',[$projects->id]) }}" method="POST" style="display: none;">
                                 <input type="hidden" name="_method" value="delete">
                                 {{ csrf_field() }}
                             </form>
